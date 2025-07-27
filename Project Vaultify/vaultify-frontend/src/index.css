@@ -1,0 +1,9 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8f9fa;
+}
+
+.sidebar {
+  border-right: 1px solid #dee2e6;
+  min-height: calc(100vh - 56px);
+}
