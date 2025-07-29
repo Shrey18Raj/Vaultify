@@ -22,6 +22,7 @@ const Sidebar = () => {
         navigate('/login');
     };
     return (
+        <div className="app-layout">
         <div className= "sidebar">
             <div className= "sidebar-group">
                 <p className="sidebar-title">Main</p>
@@ -57,6 +58,10 @@ const Sidebar = () => {
                 <NavLink to="/preferences"><FiSliders />Preferences</NavLink>
             </div>
             <button onClick={handleLogout} className="btn btn-primary">Logout</button>
+            </div>
+            <div className="dashboard-content">
+                <Outlet />
+            </div>
         </div>
     );
 };
