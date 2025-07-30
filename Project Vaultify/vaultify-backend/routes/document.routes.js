@@ -7,6 +7,8 @@ router.post('/upload', authenticateToken, DocumentController.uploadFile);
 
 router.get('/my-documents', authenticateToken, DocumentController.getMyDocuments);
 
+router.get('/detail/:id', authenticateToken, DocumentController.getDocumentDetail);
+
 router.get('/download/:filename', authenticateToken, DocumentController.downloadFile);
 
 router.get('/shared-access/:token', DocumentController.sharedAccess);
