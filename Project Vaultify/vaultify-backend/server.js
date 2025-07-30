@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const authRoutes = require('./routes/auth.routes');
 const documentRoutes = require('./routes/document.routes');
 const folderRoutes = require('./routes/folder.routes');
+const dashboardRoutes = require('./routes/dashboard.routes');
 
 dotenv.config();
 const app = express();
@@ -15,6 +16,7 @@ app.use(bodyParser.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/documents', documentRoutes);
 app.use('/api/folders', folderRoutes);
+app.use('/api/dashboard', dashboardRoutes);
 
 app.get('/', (req, res) => res.send('Vaultify Backend Running ✅'));
 
