@@ -39,6 +39,14 @@ const Document = {
         const sql = `SELECT id, original_name, filename, mimetype, size, upload_date FROM documents WHERE user_id = ? AND folder_id = ? ORDER BY upload_date DESC`;
         db.query(sql, [userId, folderId], callback);
     },
+
+    findByIdAndUser: (docId, userId, callback) => {
+        const sql = `SELECT d.*, f.name AS folder_name FROM documents d LEFT JOIN folders f ON d.folder_id = f.id WHERE d.id = ? AND d.user_id = ?`;
+        db.query(sql, [docId, userId], (err, results) => {
+            if (err) return callback(err, null);
+            callback(null, results.length > 0 ? results[0] : null);
+        });
+    }
 };
 
 module.exports = Document;
