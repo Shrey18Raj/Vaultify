@@ -11,6 +11,7 @@ import UploadDocuments from './pages/UploadDocument';
 import { AuthProvider } from './context/AuthProvider';
 import DocumentDetail from './pages/DocumentDetail';
 import FolderView from './pages/FolderView';
+import SharingPage from './pages/SharingPage';
 
 export default function App() {
     return (
@@ -29,7 +30,7 @@ export default function App() {
                             <Route path="/documents/upload" element={<UploadDocuments />} />
                             <Route path='/documents/:id' element={<DocumentDetail />} />
                             <Route path="/folders" element={<FolderView />} />
-                            <Route path="/sharing" element={<div>Sharing Interface</div>} />
+                            <Route path="/sharing" element={<SharingPage />} />
                             <Route path="/analytics" element={<div>Analytics Overview</div>} />
                             <Route path="/settings" element={<div>Account & Settings</div>} />
                     </Route>        
