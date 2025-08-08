@@ -15,12 +15,12 @@ router.get('/shared-access/:token', DocumentController.sharedAccess);
 
 router.delete('/delete/:filename', authenticateToken, DocumentController.deleteFile);
 
-router.get('/stats', authenticateToken, DocumentController.getDashboardStats);
-
 router.get('/by-folder/:folderId', authenticateToken, DocumentController.getDocumentsByFolder)
 
 router.post('/secure-share/:id', authenticateToken, DocumentController.generateAdvancedShareToken);
 
-router.post('/secure-access/:token', DocumentController.sharedAccess)
+router.post('/secure-access/:token', DocumentController.sharedAccess);
+
+router.get('/search', DocumentController.searchDocuments);
 
 module.exports = router;
