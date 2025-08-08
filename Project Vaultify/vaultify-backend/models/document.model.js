@@ -46,6 +46,13 @@ const Document = {
             if (err) return callback(err, null);
             callback(null, results.length > 0 ? results[0] : null);
         });
+    },
+
+    searchDocuments: (keyword, callback) => {
+        const searchQuery = `SEARCH DISTINCT d.* FROM documents d LEFT JOIN document_tags dt ON d.id = dt.document_id LEFT JOIN tags t ON dt.tag_id = t.id LEFT JOIN folders f ON d.folder_id = f.id WHERE d.title LIKE ? OR t.name LIKE ? OR f.name LIKE ? ORDER BY d.uploaded_at DESC`;
+
+        const likeKeyword = `${keyword}%`;
+        db.query(searchQuery, [likeKeyword, likeKeyword, likeKeyword], callback);
     }
 };
 
