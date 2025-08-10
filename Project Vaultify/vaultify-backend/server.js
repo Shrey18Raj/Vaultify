@@ -7,6 +7,7 @@ const documentRoutes = require('./routes/document.routes');
 const folderRoutes = require('./routes/folder.routes');
 const dashboardRoutes = require('./routes/dashboard.routes');
 const tagRoutes = require('./routes/tag.routes');
+const userRoutes = require('./routes/user.routes');
 
 dotenv.config();
 const app = express();
@@ -19,6 +20,7 @@ app.use('/api/documents', documentRoutes);
 app.use('/api/folders', folderRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/tags', tagRoutes);
+app.use('/api/user', userRoutes);
 
 app.get('/', (req, res) => res.send('Vaultify Backend Running ✅'));
 
