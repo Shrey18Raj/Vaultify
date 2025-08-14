@@ -1,0 +1,221 @@
+/* ============================================================
+   SecureVault Bootstrap Theme
+   Full index.css - Light & Dark Mode, Animations, Interactions
+   ============================================================ */
+
+/* --------------------- Root Variables --------------------- */
+:root {
+  /* Light Theme */
+  --bs-body-bg: hsl(0, 0%, 99%);
+  --bs-body-color: hsl(240, 10%, 15%);
+  --bs-card-bg: hsl(0, 0%, 100%);
+  --bs-card-color: hsl(240, 10%, 15%);
+  --bs-primary: hsl(221, 83%, 53%);
+  --bs-primary-hover: hsl(221, 83%, 47%);
+  --bs-success: hsl(142, 76%, 36%);
+  --bs-warning: hsl(32, 95%, 44%);
+  --bs-danger: hsl(0, 72%, 51%);
+  --bs-secondary: hsl(220, 14%, 96%);
+  --bs-muted: hsl(220, 14%, 96%);
+  --bs-border-color: hsl(220, 13%, 91%);
+  --bs-input-bg: hsl(220, 13%, 91%);
+  --bs-radius: 0.75rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.04);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.08), 0 4px 6px rgba(0,0,0,0.04);
+  --shadow-xl: 0 20px 25px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.04);
+  --shadow-glow: 0 0 40px hsla(221, 83%, 65%, 0.15);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, hsl(221,83%,53%) 0%, hsl(221,83%,65%) 100%);
+  --gradient-hero: linear-gradient(135deg, hsl(221,83%,53%) 0%, hsl(230,83%,60%) 50%, hsl(240,83%,67%) 100%);
+  --gradient-subtle: linear-gradient(180deg, hsl(0,0%,99%) 0%, hsl(220,14%,97%) 100%);
+  --gradient-card: linear-gradient(135deg, hsl(0,0%,100%) 0%, hsl(220,14%,98%) 100%);
+  --gradient-glass: linear-gradient(135deg, hsla(0,0%,100%,0.7) 0%, hsla(220,14%,98%,0.9) 100%);
+
+  /* Animation Transitions */
+  --transition-smooth: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-fast: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* --------------------- Dark Mode --------------------- */
+.dark {
+  --bs-body-bg: hsl(222, 84%, 4.9%);
+  --bs-body-color: hsl(210, 40%, 98%);
+  --bs-card-bg: hsl(222, 84%, 4.9%);
+  --bs-card-color: hsl(210, 40%, 98%);
+  --bs-primary: hsl(210, 40%, 98%);
+  --bs-primary-hover: hsl(222, 47%, 11%);
+  --bs-secondary: hsl(217, 33%, 18%);
+  --bs-muted: hsl(217, 33%, 18%);
+  --bs-border-color: hsl(217, 33%, 18%);
+}
+
+/* --------------------- Base Styles --------------------- */
+body {
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+  scroll-behavior: smooth;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* --------------------- Cards --------------------- */
+.card {
+  background-color: var(--bs-card-bg);
+  color: var(--bs-card-color);
+  border-radius: var(--bs-radius);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--bs-border-color);
+  padding: 1rem;
+}
+
+/* --------------------- Buttons --------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--bs-radius);
+  font-weight: 500;
+  transition: var(--transition-smooth);
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background-color: var(--bs-primary);
+  color: hsl(0,0%,100%);
+}
+
+.btn-primary:hover {
+  background-color: var(--bs-primary-hover);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-secondary {
+  background-color: var(--bs-secondary);
+  color: var(--bs-body-color);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--bs-border-color);
+}
+
+/* --------------------- Inputs --------------------- */
+input, textarea, select {
+  background-color: var(--bs-input-bg);
+  color: var(--bs-body-color);
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-radius);
+  padding: 0.5rem;
+  transition: var(--transition-smooth);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 2px rgba(221,83,53,0.2);
+}
+
+/* --------------------- Sidebar --------------------- */
+.sidebar {
+  background-color: var(--bs-card-bg);
+  color: var(--bs-card-color);
+  border-right: 1px solid var(--bs-border-color);
+  width: 250px;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+/* --------------------- Gradients & Glass --------------------- */
+.bg-gradient-primary { background: var(--gradient-primary); }
+.bg-gradient-hero { background: var(--gradient-hero); }
+.bg-glass {
+  background: var(--gradient-glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: var(--bs-radius);
+}
+
+/* --------------------- Animations --------------------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes bounceIn {
+  from { opacity: 0; transform: scale(0.3); }
+  50% { opacity: 1; transform: scale(1.05); }
+  70% { transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 20px hsla(221, 83%, 65%, 0.1); }
+  to { box-shadow: 0 0 30px hsla(221, 83%, 65%, 0.3); }
+}
+
+.animate-fade-in { animation: fadeIn 0.6s ease forwards; }
+.animate-slide-in-up { animation: slideInUp 0.5s ease forwards; }
+.animate-slide-in-down { animation: slideInDown 0.5s ease forwards; }
+.animate-slide-in-left { animation: slideInLeft 0.5s ease forwards; }
+.animate-slide-in-right { animation: slideInRight 0.5s ease forwards; }
+.animate-scale-in { animation: scaleIn 0.4s ease forwards; }
+.animate-bounce-in { animation: bounceIn 0.6s ease forwards; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-glow { animation: glow 2s ease-in-out infinite alternate; }
+
+/* --------------------- Interactive Hover Effects --------------------- */
+.hover-lift:hover { transform: translateY(-0.25rem); box-shadow: var(--shadow-lg); transition: var(--transition-smooth); }
+.hover-scale:hover { transform: scale(1.05); transition: var(--transition-fast); }
+.hover-glow:hover { box-shadow: var(--shadow-glow); transition: var(--transition-smooth); }
+
+/* --------------------- Staggered Animations --------------------- */
+.stagger-fade-in > * {
+  animation: fadeIn 0.6s ease forwards;
+}
+.stagger-fade-in > *:nth-child(1) { animation-delay: 0s; }
+.stagger-fade-in > *:nth-child(2) { animation-delay: 0.1s; }
+.stagger-fade-in > *:nth-child(3) { animation-delay: 0.2s; }
+.stagger-fade-in > *:nth-child(4) { animation-delay: 0.3s; }
+.stagger-fade-in > *:nth-child(5) { animation-delay: 0.4s; }
+.stagger-fade-in > *:nth-child(6) { animation-delay: 0.5s; }

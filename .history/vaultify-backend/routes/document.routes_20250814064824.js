@@ -1,0 +1,10 @@
+const express = require('express');
+const router = express.Router();
+const DocumentController = require('../controllers/document.controller');
+const authenticateToken = require('../middlewares/auth.middleware');
+
+router.post('/upload', authenticateToken, DocumentController.uploadFile);
+
+router.get('/my-documents', authenticateToken, DocumentController.getMyDocuments);
+
+module.exports = router;
